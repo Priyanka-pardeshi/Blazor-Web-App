@@ -1,0 +1,15 @@
+﻿<button @onclick="OnClick" @attributes="AdditinalAttribute">@ChildContent</button>
+
+@code {
+    [Parameter]
+    public EventCallback<MouseEventArgs> OnClick { get; set; }
+
+    //RenderFragment will read content where this component is render that is check counder page line 12
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+
+    // here it will capture the class and its Prop
+    [Parameter(CaptureUnmatchedValues =true)]
+    public Dictionary<string, object> AdditinalAttribute { get; set; }
+}
